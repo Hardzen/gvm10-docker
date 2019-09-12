@@ -61,6 +61,7 @@ RUN apt-get update ;\
         curl \
         python-polib \
         rsync \
+        nullmailer \
         -yq ;\
     apt-get clean
 
