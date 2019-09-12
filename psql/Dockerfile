@@ -77,7 +77,8 @@ RUN curl --silent --show-error https://dl.yarnpkg.com/debian/pubkey.gpg | apt-ke
 
 RUN mkdir ${SRC_PATH} -p ;\
     cd ${SRC_PATH} ;\
-    wget -O gvm-libs.tar.gz https://github.com/greenbone/gvm-libs/archive/v10.0.1.tar.gz ;\
+    #wget -O gvm-libs.tar.gz https://github.com/greenbone/gvm-libs/archive/v10.0.1.tar.gz ;\
+    git clone https://github.com/greenbone/gvm-libs.git ;\
     wget -O openvas.tar.gz https://github.com/greenbone/openvas/archive/v6.0.1.tar.gz ;\
     #wget -O gvmd-8.0.0.tar.gz https://github.com/greenbone/gvmd/archive/v8.0.0.tar.gz ;\
     git clone https://github.com/greenbone/gvmd.git ;\
@@ -89,7 +90,8 @@ RUN cd ${SRC_PATH} ;\
     find . -name \*.gz -exec tar zxvfp {} \;
 
 
-RUN  cd ${SRC_PATH}/gvm-libs-* ;\
+#RUN  cd ${SRC_PATH}/gvm-libs-* ;\
+RUN  cd ${SRC_PATH}/gvm-libs ;\
     mkdir build ;\
     cd build ;\
     cmake .. ;\
