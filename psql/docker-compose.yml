@@ -10,6 +10,13 @@ services:
     volumes:
       - gvm:/usr/local/var/lib/gvm/
       - psql:/var/lib/postgresql/
+    environment:
+      - http_proxy=
+      - https_proxy=
+      - RSYNC_PROXY=
+      - SMTP_Host=
+      - Default_Domain=
+      - Adminaddr=
 volumes:
   gvm:
   psql:
