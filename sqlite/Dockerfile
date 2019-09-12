@@ -63,6 +63,7 @@ RUN apt-get update ;\
         curl \
         python-polib \
         rsync \
+        nullmailer \
         -yq 
 
 RUN curl --silent --show-error https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - ;\
