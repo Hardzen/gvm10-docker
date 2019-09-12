@@ -79,7 +79,8 @@ RUN mkdir ${SRC_PATH} -p ;\
     cd ${SRC_PATH} ;\
     wget -O gvm-libs.tar.gz https://github.com/greenbone/gvm-libs/archive/v10.0.1.tar.gz ;\
     wget -O openvas.tar.gz https://github.com/greenbone/openvas/archive/v6.0.1.tar.gz ;\
-    wget -O gvmd.tar.gz https://github.com/greenbone/gvmd/archive/v8.0.1.tar.gz ;\
+    #wget -O gvmd-8.0.0.tar.gz https://github.com/greenbone/gvmd/archive/v8.0.0.tar.gz ;\
+    git clone https://github.com/greenbone/gvmd.git ;\
     wget -O gsa.tar.gz https://github.com/greenbone/gsa/archive/v8.0.1.tar.gz ;\
     wget -O openvas-smb.tar.gz https://github.com/greenbone/openvas-smb/archive/v1.0.5.tar.gz ;\
     wget -O ospd.tar.gz https://github.com/greenbone/ospd/archive/v1.3.2.tar.gz
@@ -120,7 +121,8 @@ RUN service redis-server restart
 
 RUN greenbone-nvt-sync 
 
-RUN cd ${SRC_PATH}/gvmd-* ;\
+#RUN cd ${SRC_PATH}/gvmd-8.0.0 ;\
+RUN cd ${SRC_PATH}/gvmd ;\
     mkdir build ;\
     cd build ;\
     cmake -DBACKEND=POSTGRESQL .. ;\
