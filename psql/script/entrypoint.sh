@@ -71,6 +71,11 @@ echo $Adminaddr > /etc/nullmailer/adminaddr
 echo $Default_Domain > /etc/nullmailer/defaultdomain
 echo $SMTP_Host > /etc/nullmailer/remotes
 
+mkfifo /var/spool/nullmailer/trigger
+chmod 0622 /var/spool/nullmailer/trigger
+
+nullmailer-send
+
 # WHATTODOWITTHIS?
 if [ -z "$BUILD" ]; then
   echo "Tailing logs"
