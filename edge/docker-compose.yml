@@ -8,6 +8,12 @@ services:
     restart: always
     volumes:
       - gvm:/usr/local/var/lib/gvm/
-
+    environment:
+      - http_proxy=
+      - https_proxy=
+      - RSYNC_PROXY=
+      - SMTP_Host=
+      - Default_Domain=
+      - Adminaddr=
 volumes:
   gvm:
