@@ -77,12 +77,11 @@ RUN curl --silent --show-error https://dl.yarnpkg.com/debian/pubkey.gpg | apt-ke
 
 RUN mkdir ${SRC_PATH} -p ;\
     cd ${SRC_PATH} ;\
-    wget -O gvm-libs.tar.gz https://github.com/greenbone/gvm-libs/archive/v10.0.1.tar.gz ;\
-    wget -O openvas.tar.gz https://github.com/greenbone/openvas/archive/v6.0.1.tar.gz ;\
-    wget -O gvmd-8.0.0.tar.gz https://github.com/greenbone/gvmd/archive/v8.0.0.tar.gz ;\
-    wget -O gsa.tar.gz https://github.com/greenbone/gsa/archive/v8.0.1.tar.gz ;\
-    wget -O openvas-smb.tar.gz https://github.com/greenbone/openvas-smb/archive/v1.0.5.tar.gz ;\
-    wget -O ospd.tar.gz https://github.com/greenbone/ospd/archive/v1.3.2.tar.gz
+    git clone https://github.com/greenbone/gvm-libs.git ;\
+    git clone https://github.com/greenbone/openvas-scanner.git ;\
+    git clone https://github.com/greenbone/gvmd.git ;\
+    git clone https://github.com/greenbone/gsa.git  ;\
+    git clone https://github.com/greenbone/openvas-smb.git
 
 RUN cd ${SRC_PATH} ;\
     find . -name \*.gz -exec tar zxvfp {} \;
