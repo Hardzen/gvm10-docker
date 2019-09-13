@@ -87,7 +87,7 @@ RUN cd ${SRC_PATH} ;\
     find . -name \*.gz -exec tar zxvfp {} \;
 
 
-RUN  cd ${SRC_PATH}/gvm-libs-* ;\
+RUN  cd ${SRC_PATH}/gvm-libs ;\
     mkdir build ;\
     cd build ;\
     cmake .. ;\
@@ -96,7 +96,7 @@ RUN  cd ${SRC_PATH}/gvm-libs-* ;\
     make install ;\
     cd ${SRC_PATH}
 
-RUN  cd ${SRC_PATH}/openvas-smb-* ;\
+RUN  cd ${SRC_PATH}/openvas-smb  ;\
     mkdir build ;\
     cd build ;\
     cmake .. ;\
@@ -104,7 +104,7 @@ RUN  cd ${SRC_PATH}/openvas-smb-* ;\
     make install ;\
     cd ${SRC_PATH}
 
-RUN  cd ${SRC_PATH}/openvas-* ;\
+RUN  cd ${SRC_PATH}/openvas-scanner ;\
     mkdir build ;\
     cd build ;\
     cmake .. ;\
@@ -119,7 +119,7 @@ RUN service redis-server restart
 
 RUN greenbone-nvt-sync 
 
-RUN cd ${SRC_PATH}/gvmd-8.0.0 ;\
+RUN cd ${SRC_PATH}/gvmd ;\
     mkdir build ;\
     cd build ;\
     cmake -DBACKEND=POSTGRESQL .. ;\
@@ -130,7 +130,7 @@ RUN cd ${SRC_PATH}/gvmd-8.0.0 ;\
 
 RUN ldconfig
 
-RUN cd ${SRC_PATH}/gsa-* ;\
+RUN cd ${SRC_PATH}/gsa ;\
     mkdir build ;\
     cd build ;\
     cmake .. ;\
