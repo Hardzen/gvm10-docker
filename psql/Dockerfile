@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
  
-COPY conf/openvassd.conf /usr/local/etc/openvas/openvassd.conf
+COPY conf/openvassd.conf /usr/local/etc/openvas/openvas.conf
 COPY script/entrypoint.sh /entrypoint.sh
 
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -113,11 +113,15 @@ RUN  cd ${SRC_PATH}/openvas-scanner ;\
     make install ;\
     cd ${SRC_PATH}
 
+RUN adduser --disabled-password --disabled-login --gecos '' openvas
+
+RUN chown openvas:openvas /usr/local/var/lib/openvas/plugins/ -R
+
 COPY conf/redis.config /etc/redis/redis.conf
 
 RUN service redis-server restart
 
-#RUN greenbone-nvt-sync 
+RUN su - openvas -c /usr/local/bin/greenbone-nvt-sync
 
 RUN cd ${SRC_PATH}/gvmd ;\
     mkdir build ;\
