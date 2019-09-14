@@ -121,7 +121,7 @@ COPY conf/redis.config /etc/redis/redis.conf
 
 RUN service redis-server restart
 
-RUN su - openvas -c /usr/local/bin/greenbone-nvt-sync
+RUN su - openvas -c greenbone-nvt-sync
 
 RUN cd ${SRC_PATH}/gvmd ;\
     mkdir build ;\
