@@ -113,15 +113,15 @@ RUN  cd ${SRC_PATH}/openvas-scanner ;\
     make install ;\
     cd ${SRC_PATH}
 
-RUN adduser --disabled-password --disabled-login --gecos '' openvas
-
-RUN chown openvas:openvas /usr/local/var/lib/openvas/plugins/ -R
+#RUN adduser --disabled-password --disabled-login --gecos '' openvas
+#RUN chown openvas:openvas /usr/local/var/lib/openvas/plugins/ -R
 
 COPY conf/redis.config /etc/redis/redis.conf
 
 RUN service redis-server restart
 
-RUN su - openvas -c greenbone-nvt-sync
+#RUN su - openvas -c greenbone-nvt-sync
+greenbone-nvt-sync
 
 RUN cd ${SRC_PATH}/gvmd ;\
     mkdir build ;\
