@@ -60,7 +60,7 @@ echo "---> Starting Scapsync.." ;\
 
 # Start GVM stuffs
 echo "---> Starting OPENVASSD"
-openvas
+#openvas
 echo "---> Starting GVMD"
 gvmd --listen=0.0.0.0 --port=9391
 echo "---> Starting GSAD"
