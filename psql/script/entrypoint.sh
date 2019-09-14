@@ -74,7 +74,7 @@ echo $SMTP_Host > /etc/nullmailer/remotes
 mkfifo /var/spool/nullmailer/trigger
 chmod 0622 /var/spool/nullmailer/trigger
 
-nullmailer-send
+nullmailer-send&
 
 # WHATTODOWITTHIS?
 if [ -z "$BUILD" ]; then
