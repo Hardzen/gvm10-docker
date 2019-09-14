@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
  
-COPY conf/openvassd.conf /usr/local/etc/openvas/openvas.conf
+COPY conf/openvassd.conf /usr/local/etc/openvas/openvassd.conf
 COPY script/entrypoint.sh /entrypoint.sh
 
 ENV DEBIAN_FRONTEND=noninteractive \
